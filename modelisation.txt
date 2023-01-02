@@ -1,0 +1,18 @@
+Modélisation de la bdd
+CREATE DATABASE IF NOT EXISTS bestshop;
+
+USE bestshop;
+
+CREATE TABLE telephone (
+	id_telephone		INT NOT NULL AUTO_INCREMENT,
+    marque			VARCHAR(150),
+    modele			VARCHAR(200),
+    couleur			VARCHAR(150),
+    taille			INT UNSIGNED,
+    prix			INT,
+    photo			VARCHAR(50),
+    memoire     	VARCHAR(20),
+    description		MEDIUMTEXT,
+    
+    PRIMARY KEY (id_telephone)
+) ENGINE=INNODB CHARACTER SET=utf8;
