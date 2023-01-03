@@ -1,0 +1,120 @@
+Github
+->  ouvrir gitbash
+composer create-project symfony/website-skeleton Bestshop
+-> installer GitHub Desktop
+
+( pour recupere la base de donner aller sur ton github desktop,
+	tu te met sur le main
+	et tu fais un fetch origin
+	regarde ton dossier .env (L.31 nom de la database)
+et pour récupérer le tout re: php bin/console doctrine:database:create dans le terminal)
+---------------------------------------------------------------------------------------------------
+
+Projet e-commerce avec symfony (BestShop)
+Nous sommes 4 collaborateurs Kevin Lesage, Bilel Belkasmi, Roxelane Demesy-Wenger et Emilie Moret.
+« BestShop » sera la seule plateforme de vente de l’entreprise, et doit être en mesure de proposer une expérience de qualité aux visiteurs 
+du site.
+	-> cahier des charges :
+Créer un site e-commerce pour la vente de téléphone portable, 
+l'utilisateur pourra voir l'ensemble des télephones en vente sur la page d'accueil, choisir un téléphone selon la marque
+ou tout simplement voir la page d'un téléphone sélectionné. Le site devra s'adapter a différent écran "responsive design" (tablette, mobile, ordinateur).
+Le client pourra s'inscrire et créer un compte (s'identifier et se déconnecter). Il aura accès a son panier avec 1 ou plusieurs produits 
+choisi (avec le total en €).
+
+1.. Arborescence du site :
+Le site se décompose en 5 pages principales, toutes accessibles depuis le header, 
+lui-même présent à l’identique sur l’ensemble des pages du site. Ces pages principales sont :
+
+Home (Accueil)
+Produits
+Espace Client (connexion/inscription)
+Panier
+En plus des ces pages principales, les pages suivantes doivent être accessibles depuis le footer :
+
+Info
+Mentions légales (CGV)
+Contact 
+Assistance 
+ 
+
+Description fonctionnelle du site :
+Depuis la liste de chaque produit, les utilisateurs doivent pouvoir :
+	- Ajouter le produit au panier
+	- Consulter la fiche du produit
+
+----- Il recevra une notification suite a son inscription ? -----
+----- Il recevra une notification suite a son achat ? -----
+
+Fiches produits
+Chaque fiche produit est composée des informations suivantes :
+ -Nom (modele)
+ -Marque
+ -Photo
+ -Description
+ -Prix
+ -Couleur
+ -Taille
+ -mémoire (a mettre dans la description) ???
+
+Espace Client
+Un utilisateur sera dans l’obligation de créer un compte pour compléter un achat. 
+Afin de créer un compte, l’utilisateur devra seulement fournir son adresse email et définir un mot de passe. 
+La création d’un compte est indispensable afin de pouvoir finaliser une commande.
+
+
+2...Objectif du site : "..."
+
+		- vente de téléphone
+		- créer la base de données => bestshop
+(modelisation.txt a la racine)
+							-> table => Portable
+									-> entity 	 => Marque
+												1=> Samsung
+												2=> Apple
+												3=> Honor
+												4=> Huaweï
+												5=> Xiaomi
+											 => Modele
+											 => Prix
+											 => Couleur
+											 => Mémoire
+											 => Taille
+											 => Image (logo marque + photo model)
+											 => Description
+
+		- Voir les relations									
+		- créer une maquette avec figma (Kevin ?)
+			-> page principal,
+			-> page d'un produit,
+			-> page par modele
+			-> page de paiement (paypal)
+			-> page d'inscription
+			-> page de connexion
+
+		- module panier
+		- module user
+			- module authentification
+				- module connexion
+				- module déconnexion
+
+3...Charte graphique :
+La charte graphique doit être proposée, en respectant les consignes suivantes.
+
+La charte graphique doit être moderne et épurée. Utiliser les inspirations ci-dessous
+----[[  La couleur dominante sera le blanc : #ffffff
+La couleur secondaire, utilisée pour les titres, les boutons, et autres éléments de navigation sera le rouge bordeaux : #9e121b
+La troisième couleur, utilisée entre autre pour les à plats, sera le gris clair : #f3f3f3 ]]----
+
+
+4... Planning :
+ Date de commencement du projet est le lundi 2 Janvier 2023.
+
+Le projet sera découpé en 3 phases :
+
+-> Phase de prototypage (2 jours environ) : Construction des maquettes, validation des choix d’architectures et de technologies.
+-> Phase de développement du pilote (3 jours environ) : Intégration des maquettes, fonctionnalités,
+-> Phase d’industrialisation (2 jours environ) : Intégration du catalogue de produits et des contenus.
+L’objectif est donc un passage en production (livraison finale) le mercredi 11 Janvier.
+
+
+
