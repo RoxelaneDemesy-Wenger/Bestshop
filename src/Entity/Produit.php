@@ -14,8 +14,7 @@ class Produit
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 150)]
-    private ?string $marque = null;
+   
 
     #[ORM\Column(length: 200)]
     private ?string $modele = null;
@@ -43,17 +42,7 @@ class Produit
         return $this->id;
     }
 
-    public function getMarque(): ?string
-    {
-        return $this->marque;
-    }
-
-    public function setMarque(string $marque): self
-    {
-        $this->marque = $marque;
-
-        return $this;
-    }
+    
 
     public function getModele(): ?string
     {
