@@ -64,6 +64,7 @@ class ProduitController extends AbstractController
             'produit' => $produit,
             'form' => $form,
         ]);
+        //fichier edit = update
     }
 
     #[Route('/delete_product_{id<\d+>}', name: 'app_delete_product', methods: ['POST'])]
