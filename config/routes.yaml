@@ -1,3 +1,28 @@
 controllers:
     resource: ../src/Controller/
     type: attribute
+
+
+cgv:    # correspond au name de la route
+    path: /cgv  #la route elle meme (a mettre dans l'URL pour y acceder)
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController    # le controller appelé via la route
+    defaults:
+        template: "statique/cgv.html.twig"  # le template a afficher
+
+assitance:
+    path: /assistance
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: "statique/assistance.html.twig"
+
+contact:
+    path: /contact
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: "statique/contact.html.twig"
+
+info:
+    path: /info
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: "statique/info.html.twig"
