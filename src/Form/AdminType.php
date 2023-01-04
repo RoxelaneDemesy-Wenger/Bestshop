@@ -17,6 +17,7 @@ class AdminType extends AbstractType
             ->add('password')
             ->add('nom')
             ->add('prenom')
+            ->add('envoyer', SubmitType::class)
         ;
     }
 
