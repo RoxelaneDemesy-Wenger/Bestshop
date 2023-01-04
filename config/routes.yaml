@@ -9,7 +9,7 @@ cgv:    # correspond au name de la route
     defaults:
         template: "statique/cgv.html.twig"  # le template a afficher
 
-assitance:
+assistance:
     path: /assistance
     controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
     defaults:
