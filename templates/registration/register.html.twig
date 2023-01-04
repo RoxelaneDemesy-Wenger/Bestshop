@@ -5,7 +5,7 @@
 {% block content %}
     <h1 class="text-center">Inscription</h1>
 
-    
+    <div class="">
     {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.prenom) }}
         {{ form_row(registrationForm.nom) }}
@@ -17,4 +17,5 @@
 
         <button type="submit" class="btn btn-primary">S'inscrire</button>
     {{ form_end(registrationForm) }}
+    <div>
 {% endblock %}
