@@ -13,15 +13,15 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/produit')]
 class ProduitController extends AbstractController
 {
-    #[Route('/', name: 'app_produit_index', methods: ['GET'])]
+    #[Route('/all-products', name: 'app_all_products', methods: ['GET'])]
     public function index(ProduitRepository $produitRepository): Response
     {
-        return $this->render('produit/index.html.twig', [
+        return $this->render('produit/products.html.twig', [
             'produits' => $produitRepository->findAll(),
         ]);
     }
 
-    #[Route('/new', name: 'app_produit_new', methods: ['GET', 'POST'])]
+    #[Route('/new-product', name: 'app_new_product', methods: ['GET', 'POST'])]
     public function new(Request $request, ProduitRepository $produitRepository): Response
     {
         $produit = new Produit();
@@ -31,24 +31,24 @@ class ProduitController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $produitRepository->save($produit, true);
 
-            return $this->redirectToRoute('app_produit_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('produit/products.html.twig', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('produit/new.html.twig', [
+        return $this->renderForm('produit/new_product.html.twig', [
             'produit' => $produit,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_produit_show', methods: ['GET'])]
+    #[Route('/product_{id<\d+>}', name: 'app_product', methods: ['GET'])]
     public function show(Produit $produit): Response
     {
-        return $this->render('produit/show.html.twig', [
+        return $this->render('produit/view_product.html.twig', [
             'produit' => $produit,
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'app_produit_edit', methods: ['GET', 'POST'])]
+    #[Route('/update_product_{id<\d+>}', name: 'app_update_product', methods: ['GET', 'POST'])]
     public function edit(Request $request, Produit $produit, ProduitRepository $produitRepository): Response
     {
         $form = $this->createForm(ProduitType::class, $produit);
@@ -57,22 +57,22 @@ class ProduitController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $produitRepository->save($produit, true);
 
-            return $this->redirectToRoute('app_produit_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('app_all_products', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('produit/edit.html.twig', [
+        return $this->renderForm('produit/new_product.html.twig', [
             'produit' => $produit,
             'form' => $form,
         ]);
     }
 
-    #[Route('/{id}', name: 'app_produit_delete', methods: ['POST'])]
+    #[Route('/delete_product_{id<\d+>}', name: 'app_delete_product', methods: ['POST'])]
     public function delete(Request $request, Produit $produit, ProduitRepository $produitRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$produit->getId(), $request->request->get('_token'))) {
             $produitRepository->remove($produit, true);
         }
 
-        return $this->redirectToRoute('app_produit_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('app_all_products', [], Response::HTTP_SEE_OTHER);
     }
 }
