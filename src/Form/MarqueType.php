@@ -6,6 +6,7 @@ use App\Entity\Marque;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class MarqueType extends AbstractType
 {
@@ -13,6 +14,7 @@ class MarqueType extends AbstractType
     {
         $builder
             ->add('nom')
+            ->add('envoyer', SubmitType::class)
         ;
     }
 
