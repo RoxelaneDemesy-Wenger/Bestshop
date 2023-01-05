@@ -31,8 +31,8 @@
                 <td>{{ produit.memoire }}</td>
                 <td>{{ produit.description }}</td>
                 <td>
-                    <a href="{{ path('app_product_{id<\d+>}', {'id': produit.id}) }}">Voir</a>
-                    <a href="{{ path('app_update_product_{id<\d+>}', {'id': produit.id}) }}">Modifier</a>
+                    <a href="{{ path('app_product', {'id': produit.id}) }}">Voir</a>
+                    <a href="{{ path('app_update_product', {'id': produit.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
