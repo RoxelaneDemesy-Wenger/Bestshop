@@ -13,7 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/produit')]
 class ProduitController extends AbstractController
 {
-    #[Route('/all-products', name: 'app_all_products', methods: ['GET'])]
+    #[Route('/all', name: 'app_all_products', methods: ['GET'])]
     public function index(ProduitRepository $produitRepository): Response
     {
         return $this->render('produit/products.html.twig', [
@@ -21,7 +21,7 @@ class ProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/new-product', name: 'app_new_product', methods: ['GET', 'POST'])]
+    #[Route('/new', name: 'app_new_product', methods: ['GET', 'POST'])]
     public function new(Request $request, ProduitRepository $produitRepository): Response
     {
         $produit = new Produit();
@@ -40,7 +40,7 @@ class ProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/product_{id<\d+>}', name: 'app_product', methods: ['GET'])]
+    #[Route('/{id<\d+>}', name: 'app_product', methods: ['GET'])]
     public function show(Produit $produit): Response
     {
         return $this->render('produit/view_product.html.twig', [
@@ -48,7 +48,7 @@ class ProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/update_product_{id<\d+>}', name: 'app_update_product', methods: ['GET', 'POST'])]
+    #[Route('/update_{id<\d+>}', name: 'app_update_product', methods: ['GET', 'POST'])]
     public function edit(Request $request, Produit $produit, ProduitRepository $produitRepository): Response
     {
         $form = $this->createForm(ProduitType::class, $produit);
@@ -67,7 +67,7 @@ class ProduitController extends AbstractController
         //fichier edit = update
     }
 
-    #[Route('/delete_product_{id<\d+>}', name: 'app_delete_product', methods: ['POST'])]
+    #[Route('/delete_{id<\d+>}', name: 'app_delete_product', methods: ['POST'])]
     public function delete(Request $request, Produit $produit, ProduitRepository $produitRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$produit->getId(), $request->request->get('_token'))) {
