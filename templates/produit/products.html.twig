@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit index{% endblock %}
+{% block title %}Tous les produits{% endblock %}
 
 {% block content %}
-    <h1>Produit index</h1>
+    <h1>Tous les produits</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Marque</th>
                 <th>Modele</th>
                 <th>Couleur</th>
@@ -17,13 +16,12 @@
                 <th>Photo</th>
                 <th>Memoire</th>
                 <th>Description</th>
-                <th>actions</th>
+                {# <th>actions</th> pour admin#}
             </tr>
         </thead>
         <tbody>
         {% for produit in produits %}
             <tr>
-                <td>{{ produit.id }}</td>
                 <td>{{ produit.marque }}</td>
                 <td>{{ produit.modele }}</td>
                 <td>{{ produit.couleur }}</td>
@@ -40,6 +38,7 @@
         {% else %}
             <tr>
                 <td colspan="10">Aucun élément trouvé</td>
+                {# à ajuster avec flash #}
             </tr>
         {% endfor %}
         </tbody>
