@@ -22,11 +22,13 @@
     <body>
 
         {% block body %}
-
+        <div class="height-90">
             {% include "_nav.html.twig" %}
             {% block content %}{% endblock %}
+        </div>
+        <div class="height-10">
             {% include "_footer.html.twig" %}
-
+        </div>
         {% endblock %}
     </body>
 </html>

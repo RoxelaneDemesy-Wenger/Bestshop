@@ -31,3 +31,18 @@
 {
     padding-top: 40px;
 }
+
+.height-90
+{
+    min-height: 90vh;
+}
+
+.height-10
+{
+    height: 10vh;
+}
+
+.test{
+    aspect-ratio: 2/1;
+    object-fit: cover;
+}
