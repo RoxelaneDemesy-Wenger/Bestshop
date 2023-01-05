@@ -42,7 +42,23 @@
     height: 10vh;
 }
 
-.test{
+.test
+{
     aspect-ratio: 2/1;
     object-fit: cover;
+}
+
+#register
+{
+    background-color: rgb(221, 221, 221);
+    height: 450px;
+    border-radius: 10px;
+    margin-top: 50px;
+    padding-top: 1px;
+    display: block;
+}
+
+#registerform
+{
+    padding-top: 60px;
 }
