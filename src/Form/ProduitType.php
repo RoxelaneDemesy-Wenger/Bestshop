@@ -30,6 +30,16 @@ class ProduitType extends AbstractType
                "mapped" => false,
                "required" => false,
             ])
+            ->add('photo', FileType::class,
+            [
+               "mapped" => false,
+               "required" => false,
+            ])
+            ->add('photo', FileType::class,
+            [
+               "mapped" => false,
+               "required" => false,
+            ])
             ->add('memoire')
             ->add('description')
             ->add('envoyer', SubmitType::class)
