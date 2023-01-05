@@ -8,7 +8,9 @@ CREATE TABLE portable (
     couleur			VARCHAR(200),
     memoire			INT UNSIGNED,
     prix			INT,
-    photo			VARCHAR(50),
+    photo1			VARCHAR(50),
+    photo2          VARCHAR(50),
+    photo3	        VARCHAR(20),
     taille	        VARCHAR(20),
     description		MEDIUMTEXT,
     
