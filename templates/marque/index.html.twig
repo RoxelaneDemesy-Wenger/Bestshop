@@ -16,7 +16,6 @@
         <tbody>
         {% for marque in marques %}
             <tr>
-                <td>{{ marque.id }}</td>
                 <td>{{ marque.nom }}</td>
                 <td>
                     <a href="{{ path('app_marque_show', {'id': marque.id}) }}">show</a>
@@ -25,7 +24,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Pas de données trouvées</td>
             </tr>
         {% endfor %}
         </tbody>
