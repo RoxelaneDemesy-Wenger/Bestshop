@@ -34,9 +34,9 @@ class MarqueController extends AbstractController
             return $this->redirectToRoute('app_marque_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('marque/new.html.twig', [
+        return $this->render('marque/new.html.twig', [
             'marque' => $marque,
-            'form' => $form,
+            'formMarque' => $form->createView()
         ]);
     }
 
@@ -60,7 +60,7 @@ class MarqueController extends AbstractController
             return $this->redirectToRoute('app_marque_index', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->renderForm('marque/edit.html.twig', [
+        return $this->render('marque/edit.html.twig', [
             'marque' => $marque,
             'form' => $form,
         ]);
