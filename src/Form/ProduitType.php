@@ -25,17 +25,17 @@ class ProduitType extends AbstractType
             ->add('couleur')
             ->add('taille')
             ->add('prix')
-            ->add('photo', FileType::class,
+            ->add('photo1', FileType::class,
             [
                "mapped" => false,
                "required" => false,
             ])
-            ->add('photo', FileType::class,
+            ->add('photo2', FileType::class,
             [
                "mapped" => false,
                "required" => false,
             ])
-            ->add('photo', FileType::class,
+            ->add('photo3', FileType::class,
             [
                "mapped" => false,
                "required" => false,
