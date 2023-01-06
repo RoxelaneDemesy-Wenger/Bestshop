@@ -19,7 +19,7 @@
                 <td>
                     <a href="{{ path('app_marque_show', {'id': marque.id}) }}">voir</a>
                     <a href="{{ path('app_marque_edit', {'id': marque.id}) }}"><i class="fas fa-edit mx-1 text-success"></i></a>
-                    <a href="{{ path('app_marque_delete', {'id': marque.id}) }}" onClick="return confirm('Etes-vous sûr de vouloir supprimer cette marque ?')"><i class="fas fa-trash mx-1 text-center text-danger" title="supprimer"></i></a>
+                    <a href="{{ path('app_marque_delete', {'id': marque.id}) }}" ><i class="fas fa-trash mx-1 text-center text-danger" title="supprimer"></i></a>
                 </td>
             </tr>
         {% else %}
