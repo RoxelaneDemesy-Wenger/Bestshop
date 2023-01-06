@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProduitRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints\NotNull;
 
 #[ORM\Entity(repositoryClass: ProduitRepository::class)]
 class Produit
@@ -35,7 +36,7 @@ class Produit
     private ?string $photo2 = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $photo3 = null;
+    private ?string $photo3 = null ;
 
     #[ORM\Column(nullable: true)]
     private ?int $memoire = null;
