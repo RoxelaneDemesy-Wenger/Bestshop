@@ -24,7 +24,7 @@
 
     <h1>Tous les produits</h1>
 
-    <table class="table">
+    {# <table class="table">
         <thead>
             <tr>
                 <th>Marque</th>
@@ -35,7 +35,7 @@
                 <th>Photo</th>
                 <th>Memoire</th>
                 <th>Description</th>
-                {# <th>actions</th> pour admin#}
+                {# <th>actions</th> pour admin
             </tr>
         </thead>
         <tbody>
@@ -57,11 +57,44 @@
         {% else %}
             <tr>
                 <td colspan="10">Aucun élément trouvé</td>
-                {# à ajuster avec flash #}
+                {# à ajuster avec flash 
             </tr>
         {% endfor %}
         </tbody>
-    </table>
+    </table >#}
+
+    <div class="row d-flex justify-content-center text-center">
+        
+        {% if produits is empty %}
+            <div class="alert alert-danger">
+                <p>cette categorie n'a pas d'articles pour le moment !</p>
+            </div>
+        {% else %}
+
+        {% for produit in produits | reverse %}
+        <div class="card m-1" style="width: 18rem;">
+            {% if produit.photo1 %}
+            <img src="{{ asset('images/produit' ~ produit.photo1) }}" class="card-img-top" alt="test">
+            {% endif %}
+            <div class="card-body">
+                <div>
+                    <a href=""><i class="fas fa-edit mx-1 text-success"></i></a>
+                </div>
+                <h5 class="card-title">{{ produit.marque.nom }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ produit.modele}}</h6>
+                <h6 class="card-subtitle mb-2 text-muted">{{ produit.couleur}} </h6>
+                <h6>{{ produit.taille }} pouces</h6>
+                <h6 class="text-muted">{{ produit.memoire }} Go</h6>
+                <h6>{{ produit.prix }} €</h6>
+                <p class="card-text">{{ produit.description }}</p>
+                <a href="{{ path('app_product', {'id': produit.id}) }}">Voir</a>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+
+    </div>
 
     <a href="{{ path('app_new_product') }}">Ajouter un nouveau produit</a>
 {% endblock %}
