@@ -22,7 +22,7 @@
     </li>
 </ul>
 
-    <h1>Tous les produits</h1>
+    <h1 class="text-center">Tous les produits</h1>
 
     {# <table class="table">
         <thead>
@@ -74,19 +74,15 @@
         {% for produit in produits | reverse %}
         <div class="card m-1" style="width: 18rem;">
             {% if produit.photo1 %}
-            <img src="{{ asset('images/produit' ~ produit.photo1) }}" class="card-img-top" alt="test">
+            <img src="{{ asset('images/produit/' ~ produit.photo1) }}" class="card-img-top" alt="test">
             {% endif %}
             <div class="card-body">
                 <div>
                     <a href=""><i class="fas fa-edit mx-1 text-success"></i></a>
                 </div>
                 <h5 class="card-title">{{ produit.marque.nom }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ produit.modele}}</h6>
-                <h6 class="card-subtitle mb-2 text-muted">{{ produit.couleur}} </h6>
-                <h6>{{ produit.taille }} pouces</h6>
-                <h6 class="text-muted">{{ produit.memoire }} Go</h6>
+                <h6 class="card-subtitle mb-2 text-muted">Modèle : {{ produit.modele}}</h6>
                 <h6>{{ produit.prix }} €</h6>
-                <p class="card-text">{{ produit.description }}</p>
                 <a href="{{ path('app_product', {'id': produit.id}) }}">Voir</a>
             </div>
         </div>
