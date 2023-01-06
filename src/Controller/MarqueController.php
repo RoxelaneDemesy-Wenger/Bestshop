@@ -62,7 +62,7 @@ class MarqueController extends AbstractController
 
         return $this->render('marque/edit.html.twig', [
             'marque' => $marque,
-            'form' => $form,
+            'formMarque' => $form->createView()
         ]);
     }
 
