@@ -13,7 +13,7 @@
             </tr>
             <tr>
                 <th>Marque</th>
-                <td>{{ produit.marque }}</td>
+                <td>{{ produit.marque.nom }}</td>
             </tr>
             <tr>
                 <th>Modele</th>
@@ -33,7 +33,7 @@
             </tr>
             <tr>
                 <th>Photo</th>
-                <td>{{ produit.photo }}</td>
+                <td>{{ produit.photo1 }}</td>
             </tr>
             <tr>
                 <th>Memoire</th>
@@ -46,7 +46,7 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_products') }}">back to list</a>
+    <a href="{{ path('app_all_products') }}">back to list</a>
 
     <a href="{{ path('app_update_product', {'id': produit.id}) }}">edit</a>
 
