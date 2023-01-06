@@ -28,13 +28,13 @@ class Produit
     #[ORM\Column]
     private ?float $prix = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo1 = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo2 = null;
 
-    #[ORM\Column(length: 50)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo3 = null;
 
     #[ORM\Column(nullable: true)]
