@@ -41,12 +41,12 @@
         <tbody>
         {% for produit in produits %}
             <tr>
-                <td>{{ produit.marque }}</td>
+                <td>{{ produit.marque.nom }}</td>
                 <td>{{ produit.modele }}</td>
                 <td>{{ produit.couleur }}</td>
                 <td>{{ produit.taille }} pouces</td>
                 <td>{{ produit.prix }}</td>
-                <td>{{ produit.photo }}</td>
+                <td>{{ produit.photo1 }}</td>
                 <td>{{ produit.memoire }}</td>
                 <td>{{ produit.description }}</td>
                 <td>
