@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg" id="navbar">
+{# <nav class="navbar navbar-expand-lg" id="navbar">
     <div class="container-fluid">
         <a class="navbar-brand text-white" href="#">BestShop</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto">
                 <li class="nav-item">
                     <a class="nav-link active text-white" aria-current="page" href="{{ path("app_home")}}">Accueil</a>
                 </li>
@@ -22,8 +22,47 @@
                     <a class="nav-link text-white" href="{{ path("register")}}">Inscription</a>
                 </li>
             </ul>
+            <ul class="navbar-nav">
+                <div class="nav-item" id="panier">
+                    <a class="nav-link text-white" href="{{ path("register")}}">Panier</a>
+                </div>
+            </ul>
         </div>
     </div>
+</nav> #}
+
+
+<nav class="navbar navbar-expand-lg bg-primary" >
+  <div class="container-fluid">
+    <a class="navbar-brand text-white" href="#">BestShop</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="{{ path("app_home")}}">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ path("app_all_products")}}">Nos produits</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ path("login") }}">Connexion</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ path("register")}}">Inscription</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav">
+                <div class="nav-item" id="panier">
+                    <a class="nav-link text-white" href="{{ path("register")}}">Panier</a>
+                </div>
+            </ul>
+    </div>
+  </div>
 </nav>
 
 

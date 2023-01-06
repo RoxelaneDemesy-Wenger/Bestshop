@@ -1,7 +1,6 @@
 #navbar
 {
-    background-color: rgb(0, 93, 136);
-    height: 65px;
+    background-color: rgb(0, 93, 136)!important;
 }
 
 #navbar2
@@ -72,4 +71,28 @@
 {
     padding-top: 60px;
 
+}
+
+.bg-primary{
+    background-color: rgb(0, 93, 136)!important;
+}
+
+.text-primary{
+    color: rgb(0, 93, 136)!important;
+}
+
+.btn-primary{
+    background-color: rgb(0, 93, 136)!important;
+}
+
+.btn{
+    border:none!important;
+}
+
+.border-primary{
+    color: rgb(0, 93, 136)!important;
+}
+
+.border-outline-primary{
+    color: rgb(0, 93, 136)!important;
 }
