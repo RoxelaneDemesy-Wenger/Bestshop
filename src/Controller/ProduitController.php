@@ -176,7 +176,7 @@ class ProduitController extends AbstractController
 
         return $this->render('produit/new_product.html.twig', [
             'produit' => $produit,
-            'form' => $form,
+            'formProduit' => $form->createView()
         ]);
         //fichier edit = update
     }
