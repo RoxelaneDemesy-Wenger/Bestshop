@@ -83,7 +83,7 @@
                 <h5 class="card-title">{{ produit.marque.nom }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Modèle : {{ produit.modele}}</h6>
                 <h6>{{ produit.prix }} €</h6>
-                <a href="{{ path('app_product', {'id': produit.id}) }}">Voir</a>
+                <a href="{{ path('app_product', {'id': produit.id}) }}" class="btn btn-primary card-link">Voir Produit</a>
             </div>
         </div>
         {% endfor %}
@@ -91,6 +91,4 @@
         {% endif %}
 
     </div>
-
-    <a href="{{ path('app_new_product') }}">Ajouter un nouveau produit</a>
 {% endblock %}
