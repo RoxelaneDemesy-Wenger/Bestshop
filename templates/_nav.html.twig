@@ -16,18 +16,31 @@
                     <a class="nav-link text-white" href="{{ path("app_all_products")}}">Nos produits</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="#">Profil</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link text-white" href="{{ path("login") }}">Connexion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ path("app_inscription")}}">Inscription</a>
                 </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
+                    <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item text-white" href="#">Voir mon profil</a></li>
+                        <li><a class="dropdown-item text-white" href="#">Déconnexion</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
+                    <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item text-white" href="{{ path("app_new_product")}}">Ajouter un produit</a></li>
+                        <li><a class="dropdown-item text-white" href="{{ path("app_marque_new")}}">Ajouter une marque</a></li>
+                        <li><a class="dropdown-item text-white" href="{{ path("app_marque_index")}}">liste marques</a></li>
+                        <li><a class="dropdown-item text-white" href="#">liste produit</a></li>
+                    </ul>
+                </li>
             </ul>
             <ul class="navbar-nav">
                 <div class="nav-item" id="panier">
-                    <a class="nav-link text-white" href="{{ path("register")}}">Panier</a>
+                    <a class="nav-link text-white" href="#">Panier</a>
                 </div>
             </ul>
     </div>
