@@ -1,3 +1,9 @@
+@font-face
+{
+    font-family: 'Anton';
+    src: url('../fonts/Anton/Anton-Regular.ttf') format('truetype');
+}
+
 #navbar
 {
     background-color: rgb(0, 93, 136)!important;
@@ -95,4 +101,10 @@
 
 .border-outline-primary{
     color: rgb(0, 93, 136)!important;
+}
+
+
+.h5
+{
+    font-family: 'Anton';
 }
