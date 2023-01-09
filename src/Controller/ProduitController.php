@@ -80,6 +80,8 @@ class ProduitController extends AbstractController
 
             $produitRepository->save($produit, true);
 
+            $this->addFlash("success", "Le produit a bien été créé !");
+
             return $this->redirectToRoute('app_all_products', [], Response::HTTP_SEE_OTHER);
         }
 
