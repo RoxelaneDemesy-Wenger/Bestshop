@@ -4,24 +4,35 @@
 
 {% block content %}
 
+
 <ul class="nav justify-content-center" id="navbar2">
-    <li class="nav-item col-md-2">
-        <a class="nav-link text-dark" aria-current="page" href="#">Apple</a>
-    </li>
-    <li class="nav-item col-md-2">
-        <a class="nav-link text-dark" href="#">Samsung</a>
-    </li>
-    <li class="nav-item col-md-2">
-        <a class="nav-link text-dark" href="#">Huawei</a>
-    </li>
-    <li class="nav-item col-md-2">
-        <a class="nav-link text-dark" href="#">Xiaomi</a>
-    </li>
-    <li class="nav-item col-md-2">
-        <a class="nav-link text-dark" href="#">Honor</a>
-    </li>
+ {% for marque in marques %}    
+ 
+            <li class="nav-item col-md-2">
+            <a class="nav-link text-dark" aria-current="page" href="{{ path('app_marque_show',{nom:marque.nom})}}">{{ marque.nom }}</a>
+            </li>
+      
+ {% endfor %}
 </ul>
 
+
+    {# <li class="nav-item col-md-2">
+        <a class="nav-link text-dark" aria-current="page" href="'app_all_products'">Apple</a>
+    </li>
+    <li class="nav-item col-md-2">
+        <a class="nav-link text-dark" href="'app_all_products'">Samsung</a>
+    </li>
+    <li class="nav-item col-md-2">
+        <a class="nav-link text-dark" href="'app_all_products'">Huawei</a>
+    </li>
+    <li class="nav-item col-md-2">
+        <a class="nav-link text-dark" href="'app_all_products'">Xiaomi</a>
+    </li>
+    <li class="nav-item col-md-2">
+        <a class="nav-link text-dark" href="'app_all_products'">Honor</a>
+    </li> #}
+
+ 
     <h1 class="text-center">Tous les produits</h1>
 
     {# <table class="table">
