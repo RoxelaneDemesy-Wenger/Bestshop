@@ -9,7 +9,7 @@
  {% for marque in marques %}    
  
             <li class="nav-item col-md-2">
-            <a class="nav-link text-dark" aria-current="page" href="{{ path('app_marque_show',{nom:marque.nom})}}">{{ marque.nom }}</a>
+            <a class="nav-link text-dark" aria-current="page" href="{{ path('app_all_products',{'nom':marque.nom})}}">{{ marque.nom }}</a>
             </li>
       
  {% endfor %}
