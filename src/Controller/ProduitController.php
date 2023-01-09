@@ -19,7 +19,7 @@ class ProduitController extends AbstractController
     public function index(ProduitRepository $produitRepository,MarqueRepository $marqueRepository ): Response
     {
 
-        return $this->render('produit/products.html.twig',  [
+        return $this->render('produit/products.html.twig', [
             'produits' => $produitRepository->findAll(),
             'marques' => $marqueRepository->findAll(),
         ]);
@@ -82,8 +82,6 @@ class ProduitController extends AbstractController
             }
 
             $produitRepository->save($produit, true);
-
-            $this->addFlash("success", "Le produit a bien été créé !");
 
             return $this->redirectToRoute('app_all_products', [], Response::HTTP_SEE_OTHER);
         }
