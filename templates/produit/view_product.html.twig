@@ -10,9 +10,9 @@
     <div class="container d-flex justify-content-center text-center mt-5">
         <div id="carouselExampleIndicators" class="carousel slide w-100">
     <div class="carousel-indicators">
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"><img src="{{ asset('images/produit/' ~ produit.photo1 ) }}"class="d-block w-100 mt-4" alt="..."></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 4"><img src="{{ asset('images/produit/' ~ produit.photo2 ) }}" class="d-block w-100 mt-4" alt="..."></button>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"><img src="{{ asset('images/produit/' ~ produit.photo3 ) }}" class="d-block w-100 mt-4" alt="..."></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"><img src="{{ asset('images/produit/' ~ produit.photo1 ) }}"class="d-block w-100 mt-5" alt="..."></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 4"><img src="{{ asset('images/produit/' ~ produit.photo2 ) }}" class="d-block w-100 mt-5" alt="..."></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"><img src="{{ asset('images/produit/' ~ produit.photo3 ) }}" class="d-block w-100 mt-5" alt="..."></button>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
@@ -36,7 +36,7 @@
         <p>{{ produit.description}}</p>
         <h1>{{ produit.prix }} €</h1>
         <button type="submit" class="btn btn-primary mt-2">Ajouter au panier</button><br>
-    <div class="">
+    <div class="mt-4">
     <a href="{{ path('app_update_product', {'id': produit.id}) }}"><i class="fas fa-edit mx-1 text-success"></i></a>
     <a href="{{ path('app_delete_product', {'id': produit.id}) }}" ><i class="fas fa-trash mx-1 text-center text-danger" title="supprimer"></i></a>
     </div>
