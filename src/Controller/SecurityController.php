@@ -57,7 +57,7 @@ class SecurityController extends AbstractController
                     throw $this->createNotFoundException("Vous n'avez pas le bon code, êtes vous un intru ?");
                 }
 
-            $repo->save($user, 1);
+            $repo->save($user,1);
 
             return $this->redirectToRoute('app_home');
         }
