@@ -3,8 +3,8 @@
 {% block title %}Nos marques{% endblock %}
 
 {% block content %}
-    <h1>Nos marques:</h1>
-
+    <center><h1>Nos marques:</h1>
+<div class="row d-flex justify-content-center text-center">
     <table class="table">
         <thead>
             <tr>
@@ -31,4 +31,5 @@
     </table>
 
     <a href="{{ path('app_marque_new') }}">Créer une nouvelle marque</a>
+    </div>
 {% endblock %}
