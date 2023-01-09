@@ -23,15 +23,38 @@
         <a class="nav-link text-dark" href="'app_all_products'">Honor</a>
     </li> #}
 
- 
+    {# <div class="nav-item col-md-2 m-2">
+        <input type="submit" value="Recherche" class="btn btn-primary">
+    </div> #}
+
     <h1 class="text-center">Tous les produits</h1>
 
-    <div class="shadow m-3 p-3">
+        <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary m-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Filtrer les marques
+    </button>
+
+    <!-- Modal -->
     {{ form_start(form) }}
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Marques</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
         {{ form_row(form.marques) }}
-        <input type="submit" value="Recherche" class="btn btn-success col-12 mt-3">
-    {{ form_end(form) }}
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+            <input type="submit" value="Recherche" class="btn btn-primary">
+        </div>
+        </div>
     </div>
+    </div>
+    {{ form_end(form) }}
+
 
     {# <table class="table">
         <thead>
@@ -89,7 +112,7 @@
                 <div>
                     <a href="{{ path('app_update_product', {'id': produit.id}) }}"><i class="fas fa-edit mx-1 text-success"></i></a>
                 </div>
-                <h5 class="card-title" style="font-family:Anton;font-size"><strong>{{ produit.marque.nom }}</strong></h5>
+                <h5 class="card-title" style="font-family:Anton;font-size">{{ produit.marque.nom }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Modèle : {{ produit.modele}}</h6>
                 <h6>{{ produit.prix }} €</h6>
                 <a href="{{ path('app_product', {'id': produit.id}) }}" class="btn btn-primary card-link">Voir Produit</a>
