@@ -4,6 +4,8 @@ namespace App\Controller;
 
 use App\Entity\Produit;
 use App\Form\ProduitType;
+use App\Filter\ProduitFilter;
+use App\Form\FilterProduitType;
 use App\Repository\MarqueRepository;
 use App\Repository\ProduitRepository;
 use Symfony\Component\HttpFoundation\Request;
@@ -15,13 +17,25 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 #[Route('/produit')]
 class ProduitController extends AbstractController
 {
-    #[Route('/all', name: 'app_all_products', methods: ['GET'])]
-    public function index(ProduitRepository $produitRepository,MarqueRepository $marqueRepository ): Response
+    #[Route('/all', name: 'app_all_products', methods: ['GET', 'POST'])]
+    public function index(ProduitRepository $produitRepository,MarqueRepository $marqueRepository, Request $request ): Response
     {
 
+
+        $data = new ProduitFilter;
+        $form = $this->createForm(FilterProduitType::class, $data);
+
+        $form->handleRequest($request);
+
+
+        dump($data);
+
+
+        $produits = $produitRepository->findSearch($data);
+
         return $this->render('produit/products.html.twig', [
-            'produits' => $produitRepository->findAll(),
-            'marques' => $marqueRepository->findAll(),
+            'produits' => $produits,
+            "form" => $form->createView()
         ]);
     }
 
