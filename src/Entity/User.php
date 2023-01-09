@@ -158,4 +158,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+        //supprimer getToken et setToken + refait la création du champs token dans le terminal, avec migration + dmm ce qui écrase l'autre champs créer
 }
