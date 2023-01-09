@@ -3,6 +3,7 @@
 {% block title %}Produit{% endblock %}
 
 {% block content %}
+
     <a href="{{ path('app_all_products') }}" class="m-2"> < Retourner à la liste</a>
     <h1 class="text-center mt-5">{{ produit.marque.nom ~ ' ' ~ produit.modele }}</h1>
 
@@ -26,6 +27,7 @@
     </div>
     </div>
     <div class="card-body mt-5">
+
 
     <h2>{{ produit.marque.nom ~ ' ' ~ produit.modele }}</h2>
         <h6 class="text-muted">{{ produit.couleur }}</h6>
