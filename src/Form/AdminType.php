@@ -14,9 +14,9 @@ class AdminType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('secret', PasswordType::class, [
-                'mapped' => false
-            ])
+            ->add('secret', PasswordType::class,[
+                  'mapped' => false
+                  ])
             ->add('envoyer', SubmitType::class)
         ;
     }
