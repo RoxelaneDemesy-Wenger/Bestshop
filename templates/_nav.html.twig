@@ -15,12 +15,18 @@
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ path("app_all_products")}}">Nos produits</a>
                 </li>
+
+                {% if not is_granted("IS_AUTHENTICATED_FULLY") %}
+
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ path("login") }}">Connexion</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-white" href="{{ path("app_inscription")}}">Inscription</a>
                 </li>
+
+                {% else %}
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Profil</a>
                     <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
@@ -28,6 +34,12 @@
                         <li><a class="dropdown-item text-white bg-primary" href="{{ path("app_logout") }}">Déconnexion</a></li>
                     </ul>
                 </li>
+
+                {% endif %}
+
+
+                {% if is_granted("IS_AUTHENTICATED_FULLY") and is_granted("ROLE_ADMIN") %}
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Admin</a>
                     <ul class="dropdown-menu bg-primary" aria-labelledby="navbarDropdownMenuLink">
@@ -37,6 +49,9 @@
                         <li><a class="dropdown-item text-white bg-primary" href="{{ path("app_all_products")}}">liste produits</a></li>
                     </ul>
                 </li>
+                
+                {% endif %}
+
             </ul>
             <ul class="navbar-nav">
                 <div class="nav-item" id="panier">

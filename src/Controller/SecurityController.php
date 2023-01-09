@@ -54,7 +54,7 @@ class SecurityController extends AbstractController
                 if($form->get('secret')->getData()== $secret){
                     $user->setRoles(["ROLE_ADMIN"]);
                 }else{
-                    throw $this->createNotFoundException("Vous n'avez pas le bon code, êtes vous un intru ?");
+                    throw $this->createNotFoundException("Vous n'avez pas le bon code, veuillez contacter l'administrateur");
                 }
 
             $repo->save($user,1);
