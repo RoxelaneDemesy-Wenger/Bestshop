@@ -38,3 +38,9 @@ login:
     controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
     defaults:
         template: "templates/registration/login.html.twig"
+
+profil:
+    path: /profil
+    controller: Symfony\Bundle\FrameworkBundle\Controller\TemplateController
+    defaults:
+        template: "templates/profil/profil.html.twig"
