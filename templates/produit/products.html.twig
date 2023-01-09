@@ -5,15 +5,6 @@
 {% block content %}
 
 
-<ul class="nav justify-content-center" id="navbar2">
- {% for marque in marques %}    
- 
-            <li class="nav-item col-md-2">
-            <a class="nav-link text-dark" aria-current="page" href="{{ path('app_all_products',{'nom':marque.nom})}}">{{ marque.nom }}</a>
-            </li>
-      
- {% endfor %}
-</ul>
 
 
     {# <li class="nav-item col-md-2">
@@ -34,6 +25,13 @@
 
  
     <h1 class="text-center">Tous les produits</h1>
+
+    <div class="shadow m-3 p-3">
+    {{ form_start(form) }}
+        {{ form_row(form.marques) }}
+        <input type="submit" value="Recherche" class="btn btn-success col-12 mt-3">
+    {{ form_end(form) }}
+    </div>
 
     {# <table class="table">
         <thead>
