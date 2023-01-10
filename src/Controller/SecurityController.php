@@ -25,7 +25,7 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
-        $this->addFlash("succes", "Bienvenue, vous êtes connecté(e)");
+        $this->addFlash("success", "Bienvenue, vous êtes connecté(e)");
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
@@ -62,7 +62,7 @@ class SecurityController extends AbstractController
 
             $repo->save($user,1);
 
-            $this->addFlash("succes", "Félicitation votre compte est maintenant un compte ADMIN.");
+            $this->addFlash("success", "Félicitation votre compte est maintenant un compte ADMIN.");
 
             return $this->redirectToRoute('app_home');
         }
@@ -97,7 +97,7 @@ class SecurityController extends AbstractController
 
     $repo->save($user, 1);
 
-    $this->addFlash("succes", "Félicitation votre compte est bien activé! Bienvenue, connectez-vous.");
+    $this->addFlash("success", "Félicitation votre compte est bien activé! Bienvenue, connectez-vous.");
 
     return $this->redirectToRoute('app_login');
 
