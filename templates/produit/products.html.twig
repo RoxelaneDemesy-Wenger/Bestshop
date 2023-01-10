@@ -104,7 +104,7 @@
         {% else %}
 
         {% for produit in produits | reverse %}
-        <div class="col-2 m-5">
+        <div class="col-2 m-5 zoomIn">
             {% if produit.photo1 %}
             <img src="{{ asset('images/produit/' ~ produit.photo1) }}" class="card-img-top" alt="test">
             {% endif %}
