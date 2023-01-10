@@ -36,12 +36,11 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            $this->addFlash("succes", "Félicitation votre compte est bien créé. Bienvenue, connectez-vous.");
+            $this->addFlash("success", "Félicitation votre compte est bien créé. Bienvenue, connectez-vous.");
 
             return $this->redirectToRoute('app_home');
         }
-
-        $this->addFlash("error", "Veuillez-vous inscrire.");
+        
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
