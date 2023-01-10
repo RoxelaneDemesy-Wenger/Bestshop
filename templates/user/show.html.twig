@@ -2,8 +2,8 @@
 
 {% block title %}User{% endblock %}
 
-{% block body %}
-    <h1>User</h1>
+{% block content %}
+    <h1 class="text-center">Mon profil</h1>
 
     {# <table class="table">
         <tbody>
@@ -48,7 +48,7 @@
               <h5>{{ app.user.prenom ~ " " ~ app.user.nom }}</h5> 
               {# <h5>{{ fullnamess(app.user.prenom, app.user.nom ) }}</h5>  #}
               <p>Web Designer</p>
-              <i class="far fa-edit mb-5"></i>
+              <a href="#"><i class="far fa-edit mb-5"></i></a>
             </div>
             <div class="col-md-8">
               <div class="card-body p-4">

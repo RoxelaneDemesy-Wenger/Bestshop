@@ -118,7 +118,7 @@
                 <h6>{{ produit.prix }} €</h6>
                 {% else %}
                 <del>{{ produit.prix }} €</del>
-                <h6>{{ produit.remise }} €</h6>
+                <h6 class="text-danger">{{ produit.remise }} €</h6>
                 {% endif %}
                 <a href="{{ path('app_product', {'id': produit.id}) }}" class="btn btn-primary card-link">Voir Produit</a>
             </div>
