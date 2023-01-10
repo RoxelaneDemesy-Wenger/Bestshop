@@ -13,34 +13,30 @@
         <h1>Votre panier</h1>
     </section>
 
-    <table class="table">
+    <table class="table table-hover text-center">
         <thead>
             <tr>
                 <th>Produit</th>
                 <th>Photo</th>
                 <th>Prix</th>
-                <th>Total</th>
+                {# <th>Total</th> #}
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
             {% for element in dataPanier %}
-                <tr>
-                    <td>{{ element.produit.modele }}</td>
-                    <td>{{ element.produit.photo1 }}</td>
-                    <td class="text-end">{{ element.produit.prix }} €</td>
+
+                 <tr>
+                    <td>{{ element.produit.marque.nom ~ ' ' ~ element.produit.modele }}</td>
+                    <td><img src="{{ asset('images/produit/' ~ element.produit.photo1) }}" style="max-height: 50px; max-width: 50px;" alt="test"></td>
+                    <td >{{ element.produit.prix }} €</td>
+                    <td></td>
                     <td>
-                        <a href="{{path("app_add_panier", {id: element.produit.id})}}" class="btn btn-success">
-                            <i class="bi bi-cart-plus"></i>
-                        </a>
-                        <a href="{{path("app_modifier_panier", {id: element.produit.id})}}" class="btn btn-warning">
-                            <i class="bi bi-cart-dash"></i>
-                        </a>
                         <a href="{{path("app_delete_panier", {id: element.produit.id})}}" class="btn btn-danger">
                             <i class="bi bi-cart-x"></i>
                         </a>
                     </td>
-                </tr>
+                </tr> 
             {% else %}
                 <tr>
                     <td colspan="5" class="text-center">Votre panier est vide</td>
