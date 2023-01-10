@@ -34,7 +34,12 @@
         <h6 class="text-muted">{{ produit.taille }} pouces</h6>
         <h6 class="text-muted">{{ produit.memoire }} Go</h6>
         <p>{{ produit.description}}</p>
-        <h1>{{ produit.prix }} €</h1>
+        {% if produit.remise is empty %}
+            <h2>{{ produit.prix }} €</h2>
+        {% else %}
+            <del>{{ produit.prix }} €</del>
+            <h2>{{ produit.remise }} €</h2>
+        {% endif %}
         <button type="submit" class="btn btn-primary mt-2">Ajouter au panier</button><br>
     <div class="mt-4">
     <a href="{{ path('app_update_product', {'id': produit.id}) }}"><i class="fas fa-edit mx-1 text-success"></i></a>
