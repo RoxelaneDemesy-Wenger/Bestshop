@@ -108,3 +108,13 @@
 {
     font-family: 'Anton';
 }
+
+#ligne
+{
+    text-decoration: line-through;
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse;
+    margin-top: 416px;
+    margin-right: 270px;
+}
