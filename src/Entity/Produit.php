@@ -48,6 +48,9 @@ class Produit
     #[ORM\JoinColumn(nullable: false)]
     private ?Marque $marque = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?float $remise = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -171,6 +174,18 @@ class Produit
     public function setMarque(?Marque $marque): self
     {
         $this->marque = $marque;
+
+        return $this;
+    }
+
+    public function getRemise(): ?float
+    {
+        return $this->remise;
+    }
+
+    public function setRemise(?float $remise): self
+    {
+        $this->remise = $remise;
 
         return $this;
     }
