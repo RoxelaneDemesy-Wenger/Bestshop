@@ -6,8 +6,15 @@
 <div class="container-fluid col-md-4" id="login">
 <form method="post">
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% if error.line == 69 or error.line == 251 %}
+            <div class="alert alert-danger">L'email ou le mot de passe est incorrect</div>
+        {% else %}
+            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
     {% endif %}
+    
+    
 
     {% if app.user %}
         <div class="mb-3">
