@@ -27,16 +27,15 @@ class PanierController extends AbstractController
         $dataPanier = [];
         $total = 0;
 
-        foreach($panier as $id => $quantite){
+        foreach($panier as $id => $produit){
             $produit = $produitRepository->find($id);
             $dataPanier[] = [
                 "produit" => $produit,
-                "quantite" => $quantite
             ];
-            $total += $produit->getPrix() * $quantite;
+            $total += $produit->getPrix();
         }
 
-        return $this->render('cart/index.html.twig', compact("dataPanier", "total"));
+        return $this->render('panier/index.html.twig', compact("dataPanier", "total"));
     }
 
     /**
@@ -57,7 +56,7 @@ class PanierController extends AbstractController
         // On sauvegarde dans la session
         $session->set("panier", $panier);
 
-        return $this->redirectToRoute("cart_index");
+        return $this->redirectToRoute("app_panier");
     }
 
     /**
@@ -80,7 +79,7 @@ class PanierController extends AbstractController
         // On sauvegarde dans la session
         $session->set("panier", $panier);
 
-        return $this->redirectToRoute("cart_index");
+        return $this->redirectToRoute("app_panier");
     }
 
     /**
@@ -99,7 +98,7 @@ class PanierController extends AbstractController
         // On sauvegarde dans la session
         $session->set("panier", $panier);
 
-        return $this->redirectToRoute("cart_index");
+        return $this->redirectToRoute("app_panier");
     }
 
     /**
@@ -109,7 +108,7 @@ class PanierController extends AbstractController
     {
         $session->remove("panier");
 
-        return $this->redirectToRoute("cart_index");
+        return $this->redirectToRoute("app_panier");
     }
 
 }
