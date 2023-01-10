@@ -38,7 +38,7 @@
             <h2>{{ produit.prix }} €</h2>
         {% else %}
             <del>{{ produit.prix }} €</del>
-            <h2>{{ produit.remise }} €</h2>
+            <h2 class="text-danger">{{ produit.remise }} €</h2>
         {% endif %}
         <button type="submit" class="btn btn-primary mt-2">Ajouter au panier</button><br>
     <div class="mt-4">
