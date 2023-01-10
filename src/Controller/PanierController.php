@@ -38,9 +38,7 @@ class PanierController extends AbstractController
         return $this->render('panier/index.html.twig', compact("dataPanier", "total"));
     }
 
-    /**
-     * @Route("/add/{id}", name="add")
-     */
+    #[Route('/add/{id}', name: 'app_add_panier')]
     public function add(Produit $produit, SessionInterface $session)
     {
         // On récupère le panier actuel
@@ -59,9 +57,7 @@ class PanierController extends AbstractController
         return $this->redirectToRoute("app_panier");
     }
 
-    /**
-     * @Route("/remove/{id}", name="remove")
-     */
+    #[Route('/modifier/{id}', name: 'app_modifier_panier')]
     public function remove(Produit $produit, SessionInterface $session)
     {
         // On récupère le panier actuel
@@ -82,9 +78,7 @@ class PanierController extends AbstractController
         return $this->redirectToRoute("app_panier");
     }
 
-    /**
-     * @Route("/delete/{id}", name="delete")
-     */
+    #[Route('/delete/{id}', name: 'app_delete_panier')]
     public function delete(Produit $produit, SessionInterface $session)
     {
         // On récupère le panier actuel
@@ -104,6 +98,7 @@ class PanierController extends AbstractController
     /**
      * @Route("/delete", name="delete_all")
      */
+    #[Route('/delete/all', name: 'app_delete_all_panier')]
     public function deleteAll(SessionInterface $session)
     {
         $session->remove("panier");
