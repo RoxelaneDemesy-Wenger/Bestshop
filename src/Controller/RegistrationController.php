@@ -45,5 +45,14 @@ class RegistrationController extends AbstractController
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
+
+    }
+
+    #[Route('/profil', name: 'app_profil')]
+    public function index(): Response
+    {
+        return $this->render('user/show.html.twig', [
+            'controller_name' => 'RegistrationController',
+        ]);
     }
 }
