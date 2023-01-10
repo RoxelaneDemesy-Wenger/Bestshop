@@ -40,8 +40,7 @@ class RegistrationController extends AbstractController
 
             return $this->redirectToRoute('app_home');
         }
-
-        $this->addFlash("error", "Veuillez-vous inscrire.");
+        
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
