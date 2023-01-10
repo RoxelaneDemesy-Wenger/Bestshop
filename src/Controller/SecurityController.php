@@ -25,12 +25,15 @@ class SecurityController extends AbstractController
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 
+        $this->addFlash("succes", "Bienvenue, vous êtes connecté(e)");
+
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void
     {
+        $this->addFlash("error", "Vous êtes déconnecté(e)");
         throw new LogicException('This method can be blank - it will be intercepted by the logout key on your firewall.');
     }
 
@@ -59,8 +62,12 @@ class SecurityController extends AbstractController
 
             $repo->save($user,1);
 
+            $this->addFlash("succes", "Félicitation votre compte est maintenant un compte ADMIN.");
+
             return $this->redirectToRoute('app_home');
         }
+
+        $this->addFlash("error", "Merci de remplir ce champs ou de contacter votre administrateur.");
 
         return $this->render('security/adminForm.html.twig', [
             "user" => $user,
