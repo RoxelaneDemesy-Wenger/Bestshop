@@ -3,7 +3,9 @@
 namespace App\Controller;
 
 use App\Entity\Produit;
+use App\Entity\Commande;
 use App\Repository\ProduitRepository;
+use App\Repository\CommandeRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -109,7 +111,7 @@ class PanierController extends AbstractController
     }
 
     #[Route('/payer', name: 'app_payer')]
-    public function payer(SessionInterface $session, CommandeRepository $commandeRepository, ProduitRepository $produitRepository, DetailCommandeRepository $detailCommandeRepository)
+    public function payer(SessionInterface $session, CommandeRepository $commandeRepository, ProduitRepository $produitRepository, CommandeRepository $CommandeRepository)
     {
 
         $panier = $session->get("panier", []);
