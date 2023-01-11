@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Produit;
 use App\Entity\Commande;
+use App\Entity\DetailCommande;
 use App\Repository\ProduitRepository;
 use App\Repository\CommandeRepository;
 use App\Repository\DetailCommandeRepository;
@@ -122,9 +123,9 @@ class PanierController extends AbstractController
             $produit = $produitRepository->find($id);
             $total += $produit->getPrix();
         }
-
+        
         dd($panier);
-
+        
         $commande = new Commande;
         $commande->setUser($this->getUser());
         $commande->setPrix($total);
