@@ -10,11 +10,12 @@
 
 
     <section class="bg-light p-3">
-        <h1>Votre panier</h1>
+        <h1 class="text-center">Votre panier</h1>
     </section>
 
+<div class="w-75 mt-5 mx-auto row">
     <table class="table table-hover text-center">
-        <thead>
+        <thead class="bg-primary text-white">
             <tr>
                 <th>Produit</th>
                 <th>Photo</th>
@@ -28,11 +29,11 @@
 
                 <tr>
                     <td>{{ element.produit.marque.nom ~ ' ' ~ element.produit.modele }}</td>
-                    <td><img src="{{ asset('images/produit/' ~ element.produit.photo1) }}" style="max-height: 50px; max-width: 50px;" alt="test"></td>
+                    <td><a href="{{ path('app_product', {'id': element.produit.id}) }}"><img src="{{ asset('images/produit/' ~ element.produit.photo1) }}" style="max-height: 50px; max-width: 50px;" alt="test"></a></td>
                     {% if element.produit.remise is empty %}
                     <td >{{ element.produit.prix }} €</td>
                     {% else %}
-                    <td>{{ element.produit.remise }} €</td>
+                    <td class="text-danger"><del class="text-dark">{{ element.produit.prix }} €</del><br>{{ element.produit.remise }} €</td>
                     {% endif %}
                     <td>
                         <a href="{{path("app_delete_panier", {id: element.produit.id})}}">
@@ -46,10 +47,10 @@
                 </tr>
             {% endfor %}
         </tbody>
-        <tfoot>
+        <tfoot class="bg-primary text-white">
             <tr>
-                <td colspan="2"²>Total</td>
-                <td class="text-end">{{ total }} €</td>
+                <td colspan="2" class="text-end"><strong>Total :</strong></td>
+                <td>{{ total }} €</td>
                 <td>
                     <a href="{{path("app_delete_all_panier")}}">
                         <i class="fas fa-trash mx-1 text-center text-danger" title="supprimer"></i>
@@ -58,6 +59,14 @@
             </tr>
         </tfoot>
     </table>
-    
+    <div class="row justify-content-between">
+        <div class="col-md-6">
+            <button href="" class="btn btn-primary" style="width: 100px;">Retour</button>
+        </div>
+        <div class="col-md-1">
+            <button href="" class="btn btn-success" style="width: 100px;">Payer</button>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
