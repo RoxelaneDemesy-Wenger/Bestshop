@@ -141,7 +141,7 @@ class PanierController extends AbstractController
         }
         $session->set("panier", []);
 
-        $this->addFlash("success", "📦 Votre commande est validée! 'Bestshop, plus portable que jamais'🚚);
+        $this->addFlash("success", "📦 Votre commande est validée! Bestshop, plus portable que jamais 🚚");
 
         return $this->redirectToRoute("app_profil");
     }

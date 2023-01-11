@@ -87,7 +87,7 @@ class ProduitController extends AbstractController
                 $fileName = $slugger->slug($produit->getModele()) . uniqid() . '.' . $file3->getClientOriginalExtension();
 
                 // Enregistrer le fichier dans le dossier public
-                $file3->move(
+                    $file3->move(
                     $this->getParameter("produit"),
                     $fileName
                 );
