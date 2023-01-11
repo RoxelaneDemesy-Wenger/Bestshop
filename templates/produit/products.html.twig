@@ -108,10 +108,12 @@
             {% if produit.photo1 %}
             <img src="{{ asset('images/produit/' ~ produit.photo1) }}" class="card-img-top" alt="test">
             {% endif %}
-            <div class="card-body">
+            <div class="card-body mt-2">
+            {% if is_granted("IS_AUTHENTICATED_FULLY") and is_granted("ROLE_ADMIN") %}
                 <div>
                     <a href="{{ path('app_update_product', {'id': produit.id}) }}"><i class="fas fa-edit mx-1 text-success"></i></a>
                 </div>
+            {% endif %}
                 <h5 class="card-title" style="font-family:Anton;font-size">{{ produit.marque.nom }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Modèle : {{ produit.modele}}</h6>
                 {% if produit.remise is empty %}
