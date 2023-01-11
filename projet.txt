@@ -101,9 +101,8 @@ La création d’un compte est indispensable afin de pouvoir finaliser une comma
 La charte graphique doit être proposée, en respectant les consignes suivantes.
 
 La charte graphique doit être moderne et épurée. Utiliser les inspirations ci-dessous
-----[[  La couleur dominante sera le blanc : #ffffff
-La couleur secondaire, utilisée pour les titres, les boutons, et autres éléments de navigation sera le rouge bordeaux : #9e121b
-La troisième couleur, utilisée entre autre pour les à plats, sera le gris clair : #f3f3f3 ]]----
+----[[  La couleur dominante sera le bleu : rgb(0, 93, 136) utilisée pour les titres, les boutons, et autres éléments de navigation sera le rouge bordeaux : #9e121b
+---
 
 
 4... Planning :
