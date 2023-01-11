@@ -100,9 +100,6 @@ class PanierController extends AbstractController
         return $this->redirectToRoute("app_panier");
     }
 
-    /**
-     * @Route("/delete", name="delete_all")
-     */
     #[Route('/delete/all', name: 'app_delete_all_panier')]
     public function deleteAll(SessionInterface $session)
     {

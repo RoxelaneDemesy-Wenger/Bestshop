@@ -20,7 +20,7 @@
                 <th>Photo</th>
                 <th>Prix</th>
                 {# <th>Total</th> #}
-                <th>Actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -35,8 +35,8 @@
                     <td>{{ element.produit.remise }} €</td>
                     {% endif %}
                     <td>
-                        <a href="{{path("app_delete_panier", {id: element.produit.id})}}" class="btn btn-danger">
-                            <i class="bi bi-cart-x"></i>
+                        <a href="{{path("app_delete_panier", {id: element.produit.id})}}">
+                            <i class="fas fa-trash mx-1 text-center text-danger" title="supprimer"></i>
                         </a>
                     </td>
                 </tr> 
@@ -48,11 +48,11 @@
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="3">Total</td>
+                <td colspan="2"²>Total</td>
                 <td class="text-end">{{ total }} €</td>
                 <td>
-                    <a href="" class="btn btn-danger">
-                        <i class="bi bi-cart-x"></i>
+                    <a href="{{path("app_delete_all_panier")}}">
+                        <i class="fas fa-trash mx-1 text-center text-danger" title="supprimer"></i>
                     </a>
                 </td>
             </tr>
