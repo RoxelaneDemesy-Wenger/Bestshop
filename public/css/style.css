@@ -246,3 +246,17 @@
                 transform: none;
                 }
                 } 
+
+
+.panier
+{
+    width: 1200px;
+    margin-left: 300px;
+}
+
+@media screen and (max-width: 900px){
+    .panier{
+        width: 100%;
+        margin-left: 0px;
+    }
+}
