@@ -32,7 +32,12 @@ class PanierController extends AbstractController
             $dataPanier[] = [
                 "produit" => $produit,
             ];
-            $total += $produit->getPrix();
+            if(empty($produit->getRemise())){
+                $total += $produit->getPrix();
+            }
+            else{
+                $total += $produit->getRemise();
+            }
         }
 
         return $this->render('panier/index.html.twig', compact("dataPanier", "total"));
