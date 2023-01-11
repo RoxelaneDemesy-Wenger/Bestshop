@@ -108,4 +108,42 @@ class PanierController extends AbstractController
         return $this->redirectToRoute("app_panier");
     }
 
+    #[Route('/payer', name: 'app_payer')]
+    public function payer(SessionInterface $session, CommandeRepository $commandeRepository, ProduitRepository $produitRepository, DetailCommandeRepository $detailCommandeRepository)
+    {
+
+        $panier = $session->get("panier", []);
+
+        $total = 0;
+        foreach ($panier as $id) {
+            $produit = $produitRepository->find($id);
+            $total += $produit->getPrix();
+        }
+
+        $commande = new Commande;
+        $commande->setUser($this->getUser());
+        $commande->setPrix($total);
+        $commande->setDateCommande(new \DateTimeImmutable('now'));
+
+
+        $commandeRepository->save($commande, true);
+
+        foreach($panier as $k => $v)
+        {
+            $produit = $produitRepository->find($k);
+
+            $detailCommande = new DetailCommande;
+            $detailCommande->setCommande($commande);
+            $detailCommande->setProduit($produit);
+            $detailCommande->setPrix($produit->getPrix());
+            $detailCommandeRepository->save($detailCommande, true);
+
+        }
+        $session->set("panier", []);
+
+        $this->addFlash("success", "📦 Votre commande est validée! 'Bestshop, plus portable que jamais'🚚);
+
+        return $this->redirectToRoute("app_profil");
+    }
+
 }
