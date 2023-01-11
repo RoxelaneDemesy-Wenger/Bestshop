@@ -123,6 +123,8 @@ class PanierController extends AbstractController
             $total += $produit->getPrix();
         }
 
+        dd($panier);
+
         $commande = new Commande;
         $commande->setUser($this->getUser());
         $commande->setPrix($total);
