@@ -6,6 +6,7 @@ use App\Entity\Produit;
 use App\Entity\Commande;
 use App\Repository\ProduitRepository;
 use App\Repository\CommandeRepository;
+use App\Repository\DetailCommandeRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -111,7 +112,7 @@ class PanierController extends AbstractController
     }
 
     #[Route('/payer', name: 'app_payer')]
-    public function payer(SessionInterface $session, CommandeRepository $commandeRepository, ProduitRepository $produitRepository, CommandeRepository $CommandeRepository)
+    public function payer(SessionInterface $session, CommandeRepository $commandeRepository, ProduitRepository $produitRepository, DetailCommandeRepository $DetailCommandeRepository)
     {
 
         $panier = $session->get("panier", []);
@@ -121,6 +122,8 @@ class PanierController extends AbstractController
             $produit = $produitRepository->find($id);
             $total += $produit->getPrix();
         }
+
+        dd($panier);
 
         $commande = new Commande;
         $commande->setUser($this->getUser());
