@@ -26,8 +26,9 @@ class SecurityController extends AbstractController
         $lastUsername = $authenticationUtils->getLastUsername();
 
         $this->addFlash("success", "Bienvenue, vous êtes connecté(e)");
-
+        
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
+        
     }
 
     #[Route(path: '/logout', name: 'app_logout')]
