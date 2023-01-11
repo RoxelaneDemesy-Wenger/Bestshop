@@ -26,11 +26,14 @@
         <tbody>
             {% for element in dataPanier %}
 
-                 <tr>
+                <tr>
                     <td>{{ element.produit.marque.nom ~ ' ' ~ element.produit.modele }}</td>
                     <td><img src="{{ asset('images/produit/' ~ element.produit.photo1) }}" style="max-height: 50px; max-width: 50px;" alt="test"></td>
+                    {% if element.produit.remise is empty %}
                     <td >{{ element.produit.prix }} €</td>
-                    <td></td>
+                    {% else %}
+                    <td>{{ element.produit.remise }} €</td>
+                    {% endif %}
                     <td>
                         <a href="{{path("app_delete_panier", {id: element.produit.id})}}" class="btn btn-danger">
                             <i class="bi bi-cart-x"></i>
