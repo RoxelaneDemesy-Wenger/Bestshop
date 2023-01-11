@@ -22,7 +22,7 @@ class PanierController extends AbstractController
     public function index(SessionInterface $session, ProduitRepository $produitRepository)
     {
         $panier = $session->get("panier", []);
-
+        dump($panier);
         // On "fabrique" les données
         $dataPanier = [];
         $total = 0;
@@ -83,7 +83,7 @@ class PanierController extends AbstractController
         return $this->redirectToRoute("app_panier");
     }
 
-    #[Route('/delete/{id}', name: 'app_delete_panier')]
+    #[Route('/delete/{id<\d+>}', name: 'app_delete_panier')]
     public function delete(Produit $produit, SessionInterface $session)
     {
         // On récupère le panier actuel
