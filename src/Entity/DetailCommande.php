@@ -13,31 +13,26 @@ class DetailCommande
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $user_id = null;
+
 
     #[ORM\Column]
     private ?float $prix = null;
 
-    #[ORM\Column]
-    private ?\DateTimeImmutable $date_commande = null;
+    #[ORM\Column(nullable: true)]
+    private ?int $quantity = null;
+
+    #[ORM\ManyToOne(inversedBy: 'detailCommandes')]
+    private ?Produit $produit = null;
+
+    #[ORM\ManyToOne(inversedBy: 'detailCommandes')]
+    private ?Commande $commande = null;
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUserId(): ?int
-    {
-        return $this->user_id;
-    }
-
-    public function setUserId(int $user_id): self
-    {
-        $this->user_id = $user_id;
-
-        return $this;
-    }
 
     public function getPrix(): ?float
     {
@@ -51,15 +46,41 @@ class DetailCommande
         return $this;
     }
 
-    public function getDateCommande(): ?\DateTimeImmutable
+    public function getQuantity(): ?int
     {
-        return $this->date_commande;
+        return $this->quantity;
     }
 
-    public function setDateCommande(\DateTimeImmutable $date_commande): self
+    public function setQuantity(?int $quantity): self
     {
-        $this->date_commande = $date_commande;
+        $this->quantity = $quantity;
 
         return $this;
     }
+
+    public function getProduit(): ?Produit
+    {
+        return $this->produit;
+    }
+
+    public function setProduit(?Produit $produit): self
+    {
+        $this->produit = $produit;
+
+        return $this;
+    }
+
+    public function getCommande(): ?Commande
+    {
+        return $this->commande;
+    }
+
+    public function setCommande(?Commande $commande): self
+    {
+        $this->commande = $commande;
+
+        return $this;
+    }
+
+
 }

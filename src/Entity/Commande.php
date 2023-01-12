@@ -26,13 +26,15 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    #[ORM\ManyToMany(targetEntity: Produit::class, inversedBy: 'commandes')]
-    private Collection $produit;
+    #[ORM\OneToMany(mappedBy: 'commande', targetEntity: DetailCommande::class)]
+    private Collection $detailCommandes;
 
     public function __construct()
     {
-        $this->produit = new ArrayCollection();
+        $this->detailCommandes = new ArrayCollection();
     }
+
+
 
     public function getId(): ?int
     {
@@ -76,26 +78,34 @@ class Commande
     }
 
     /**
-     * @return Collection<int, Produit>
+     * @return Collection<int, DetailCommande>
      */
-    public function getProduit(): Collection
+    public function getDetailCommandes(): Collection
     {
-        return $this->produit;
+        return $this->detailCommandes;
     }
 
-    public function addProduit(Produit $produit): self
+    public function addDetailCommande(DetailCommande $detailCommande): self
     {
-        if (!$this->produit->contains($produit)) {
-            $this->produit->add($produit);
+        if (!$this->detailCommandes->contains($detailCommande)) {
+            $this->detailCommandes->add($detailCommande);
+            $detailCommande->setCommande($this);
         }
 
         return $this;
     }
 
-    public function removeProduit(Produit $produit): self
+    public function removeDetailCommande(DetailCommande $detailCommande): self
     {
-        $this->produit->removeElement($produit);
+        if ($this->detailCommandes->removeElement($detailCommande)) {
+            // set the owning side to null (unless already changed)
+            if ($detailCommande->getCommande() === $this) {
+                $detailCommande->setCommande(null);
+            }
+        }
 
         return $this;
     }
+
+
 }
