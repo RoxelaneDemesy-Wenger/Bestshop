@@ -54,13 +54,15 @@ class Produit
     #[ORM\Column(nullable: true)]
     private ?float $remise = null;
 
-    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'produit')]
-    private Collection $commandes;
+    #[ORM\OneToMany(mappedBy: 'produit', targetEntity: DetailCommande::class)]
+    private Collection $detailCommandes;
 
     public function __construct()
     {
-        $this->commandes = new ArrayCollection();
+        $this->detailCommandes = new ArrayCollection();
     }
+
+
 
     public function getId(): ?int
     {
@@ -203,29 +205,34 @@ class Produit
     }
 
     /**
-     * @return Collection<int, Commande>
+     * @return Collection<int, DetailCommande>
      */
-    public function getCommandes(): Collection
+    public function getDetailCommandes(): Collection
     {
-        return $this->commandes;
+        return $this->detailCommandes;
     }
 
-    public function addCommande(Commande $commande): self
+    public function addDetailCommande(DetailCommande $detailCommande): self
     {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes->add($commande);
-            $commande->addProduit($this);
+        if (!$this->detailCommandes->contains($detailCommande)) {
+            $this->detailCommandes->add($detailCommande);
+            $detailCommande->setProduit($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): self
+    public function removeDetailCommande(DetailCommande $detailCommande): self
     {
-        if ($this->commandes->removeElement($commande)) {
-            $commande->removeProduit($this);
+        if ($this->detailCommandes->removeElement($detailCommande)) {
+            // set the owning side to null (unless already changed)
+            if ($detailCommande->getProduit() === $this) {
+                $detailCommande->setProduit(null);
+            }
         }
 
         return $this;
     }
+
+
 }

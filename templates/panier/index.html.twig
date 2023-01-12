@@ -63,9 +63,18 @@
         <div class="col-md-6">
             <a href="{{ path("app_all_products") }}" class="btn btn-primary" style="width: 100px;">Retour</a>
         </div>
-        <div class="col-md-1">
-            <a href="{{ path("app_payer") }}" class="btn btn-success" style="width: 100px;"> Payer <a/>
-        </div>
+
+        {% if app.user %}
+            <div class="col-md-1">
+                <form method="post" action="{{ path('app_payer') }}">
+                    <input type="submit" value="Payer" class="btn btn-success" style="width: 100px;">
+                </form>
+            </div>
+        {% else %}
+        Veuillez vous connecter ou vous inscrire pour passer la commande
+        {% endif %}
+        
+        
     </div>
 </div>
 
