@@ -50,6 +50,12 @@ class RegistrationController extends AbstractController
     #[Route('/profil', name: 'app_profil')]
     public function index(): Response
     {
+        // requête de selection, 
+        // dans la table commande, récupérer les commandes de l'utilisateur connecté 
+        // retourner order DESC et limit 1
+
+        // SELECT * FROM commande WHERE user = $this->getUser() ORDER BY dateCommande DESC LIMIT 1;
+        // ->findBy([], [])
         return $this->render('user/show.html.twig', [
             'controller_name' => 'RegistrationController',
         ]);

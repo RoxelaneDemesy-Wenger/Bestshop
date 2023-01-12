@@ -15,7 +15,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PanierController extends AbstractController
 {
-#[Route('/panier', name: 'app_panier')]
+    #[Route('/panier', name: 'app_panier')]
     // public function index(): Response
     // {
     //     return $this->render('panier/index.html.twig', [
@@ -113,26 +113,38 @@ class PanierController extends AbstractController
     }
 
     #[Route('/payer', name: 'app_payer')]
-    public function payer(SessionInterface $session, CommandeRepository $commandeRepository, ProduitRepository $produitRepository, DetailCommandeRepository $DetailCommandeRepository)
+    public function payer(SessionInterface $session, CommandeRepository $commandeRepository, ProduitRepository $produitRepository, DetailCommandeRepository $detailCommandeRepository)
     {
-
+        if(!$this->getUser())
+        {
+            $this->addFlash("error", "Vous devez vous connecter pour passer la commande");
+            return $this->redirectToRoute("app_panier");
+        }
         $panier = $session->get("panier", []);
 
+        //dd($panier);
+
         $total = 0;
-        foreach ($panier as $id) {
+        foreach ($panier as  $id => $v) {
             $produit = $produitRepository->find($id);
-            $total += $produit->getPrix();
+
+            if(empty($produit->getRemise())){
+                $total += $produit->getPrix()* $v;
+            }
+            else{
+                $total += $produit->getRemise()* $v;
+            }
+
         }
         
-        dd($panier);
+        //dd($panier);
         
         $commande = new Commande;
         $commande->setUser($this->getUser());
         $commande->setPrix($total);
         $commande->setDateCommande(new \DateTimeImmutable('now'));
-
-
         $commandeRepository->save($commande, true);
+        
 
         foreach($panier as $k => $v)
         {
@@ -141,11 +153,21 @@ class PanierController extends AbstractController
             $detailCommande = new DetailCommande;
             $detailCommande->setCommande($commande);
             $detailCommande->setProduit($produit);
-            $detailCommande->setPrix($produit->getPrix());
+            
+
+            if(empty($produit->getRemise())){
+                $detailCommande->setPrix($produit->getPrix());
+            }
+            else{
+                $detailCommande->setPrix($produit->getRemise());
+            }
+
+
+            $detailCommande->setQuantity($v);
             $detailCommandeRepository->save($detailCommande, true);
 
         }
-        $session->set("panier", []);
+        $session->remove("panier");
 
         $this->addFlash("success", "📦 Votre commande est validée! Bestshop, plus portable que jamais 🚚");
 
